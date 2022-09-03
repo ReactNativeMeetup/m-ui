@@ -1,5 +1,6 @@
 ## React Native Start Application
 
+yarn install
 npm start
 
 ## Installation
