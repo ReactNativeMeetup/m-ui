@@ -3,6 +3,9 @@ import { StyleSheet, View, Text, TouchableOpacity, ImageBackground, Image } from
 import { padding } from '../utils/styles/styles'
 import * as SplashScreen from 'expo-splash-screen';
 
+//Components
+import {HeaderText} from '../components/HeaderText'
+
 import {
     useFonts,
     Montserrat_100Thin,
@@ -55,12 +58,7 @@ const GettingStarted = ({navigation}) => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <View style={styles.headerTextContainer}>
-                <Text style={styles.headerText}>Welcome to</Text>
-                <Text style={styles.headerText}>Meetup</Text>
-                <Text style={styles.subHeaderText}>Discover your niche and develop</Text>
-                <Text style={styles.subHeaderText}>unforgettable relationships.</Text>
-            </View>
+            <HeaderText/>
             <ImageBackground source={require('../assets/bg.png')} style={styles.bgImage} resizeMode='cover'>
                 <View style={
                     {backgroundColor: "#FFFF",
