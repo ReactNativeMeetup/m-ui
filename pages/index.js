@@ -1,5 +1,7 @@
-import GettingStarted from './getStarted'
+import GettingStarted from './GetStarted'
+import Profile from './Profile'
 
 module.exports = {
-    GettingStarted
+    GettingStarted,
+    Profile
 }

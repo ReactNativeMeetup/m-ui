@@ -6,7 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Signup from './components/Signup';
 import Forgot from './components/Forgot';
-import { GettingStarted } from './pages';
+import { GettingStarted, Profile } from './pages';
 
 const Stack = createNativeStackNavigator()
 
@@ -21,6 +21,10 @@ const App = () => {
           name="GettingStarted"
           component={GettingStarted}
         />
+        <Stack.Screen
+          name="Profile"
+          component={Profile}
+          />
         <Stack.Screen
           name="Home"
           component={First}

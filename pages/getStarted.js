@@ -58,7 +58,7 @@ const GettingStarted = ({navigation}) => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <HeaderText/>
+            <HeaderText headerText={"Welcome to Meetup"} subHeaderText={"Discover your niche and your niche and develop unforgettable relationship"}/>
             <ImageBackground source={require('../assets/bg.png')} style={styles.bgImage} resizeMode='cover'>
                 <View style={
                     {backgroundColor: "#FFFF",
@@ -102,7 +102,7 @@ const GettingStarted = ({navigation}) => {
                 </View>
             </ImageBackground>
             <View>
-                <TouchableOpacity style={styles.button} onPress = {() => navigation.navigate("Signup")}>
+                <TouchableOpacity style={styles.button} onPress = {() => navigation.navigate("Profile")}>
                     <Text style={styles.buttonText}>Get Started</Text>
                 </TouchableOpacity>
             </View>
@@ -119,15 +119,6 @@ const styles = StyleSheet.create({
     },
     headerTextContainer: {
         marginTop: "10%"
-    },
-    headerText: {
-        fontWeight: "bold",
-        fontSize: "32rem",
-        fontFamily: "Montserrat_500Medium"
-    },
-    subHeaderText: {
-        fontSize: "16rem",
-        fontFamily: "Montserrat_400Regular"
     },
     button: {
         backgroundColor: "rgba(0, 0, 0, 1)",
