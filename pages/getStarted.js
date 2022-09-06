@@ -1,4 +1,3 @@
-import { useState, useEffect, useCallback } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, ImageBackground, Image } from 'react-native';
 import { padding } from '../utils/styles/styles'
 import * as SplashScreen from 'expo-splash-screen';
@@ -28,6 +27,7 @@ import {
     Montserrat_900Black_Italic,
 } from '@expo-google-fonts/montserrat';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { Button } from '../components/Button';
 
 const GettingStarted = ({navigation}) => {
 
@@ -100,12 +100,12 @@ const GettingStarted = ({navigation}) => {
                         }}>
                     <Image source={require('../assets/michael-dam-mEZ3PoFGs_k-unsplash.jpg')} style={{width:"100%", height: "100%", borderRadius: "25%"}}/>
                 </View>
+                <View style={{
+                    marginTop: "30%"
+                }}>
+                    <Button text={"Get Started"} onClick={() => navigation.navigate("Profile")}/>
+                </View>
             </ImageBackground>
-            <View>
-                <TouchableOpacity style={styles.button} onPress = {() => navigation.navigate("Profile")}>
-                    <Text style={styles.buttonText}>Get Started</Text>
-                </TouchableOpacity>
-            </View>
         </SafeAreaView>
     )
 }
@@ -119,20 +119,6 @@ const styles = StyleSheet.create({
     },
     headerTextContainer: {
         marginTop: "10%"
-    },
-    button: {
-        backgroundColor: "rgba(0, 0, 0, 1)",
-        borderRadius: "20px",
-        justifyContent: "center",
-        alignItems: "center",
-        height: 60,
-        marginTop: -80
-    },
-    buttonText: {
-        color: "white",
-        fontSize: "16rem",
-        fontFamily: "Montserrat_500Medium",
-        letterSpacing: "1px"
     },
     bgImage:{
         marginTop: 25,

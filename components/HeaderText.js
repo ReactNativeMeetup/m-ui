@@ -21,9 +21,14 @@ const styles = StyleSheet.create({
         marginTop: "10%"
     },
     headerText: {
+        width: "85%",
         fontWeight: "bold",
-        fontSize: "32rem",
-        fontFamily: "Montserrat_500Medium"
+        fontSize: "36rem",
+        fontFamily: "Montserrat_500Medium",
+        flexWrap: "wrap"
+    },
+    subHeaderText:{
+        width:"75%"
     }
 })
 
