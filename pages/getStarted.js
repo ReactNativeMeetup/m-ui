@@ -58,7 +58,7 @@ const GettingStarted = ({navigation}) => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <HeaderText/>
+            <HeaderText text = "Welcome to Ensue" first = "Discover your niche and develop" second = "unforgettable relationships"/>
             <ImageBackground source={require('../assets/bg.png')} style={styles.bgImage} resizeMode='cover'>
                 <View style={
                     {backgroundColor: "#FFFF",
@@ -102,6 +102,10 @@ const GettingStarted = ({navigation}) => {
                 </View>
             </ImageBackground>
             <View>
+                <TouchableOpacity style={styles.button} onPress = {() => navigation.navigate("Login")}>
+                    <Text style={styles.buttonText}>Login</Text>
+                </TouchableOpacity>
+                <View style = {styles.space}></View>
                 <TouchableOpacity style={styles.button} onPress = {() => navigation.navigate("Signup")}>
                     <Text style={styles.buttonText}>Get Started</Text>
                 </TouchableOpacity>
@@ -134,8 +138,8 @@ const styles = StyleSheet.create({
         borderRadius: "20px",
         justifyContent: "center",
         alignItems: "center",
-        height: 60,
-        marginTop: -80
+        height: 40,
+        marginTop: -100
     },
     buttonText: {
         color: "white",

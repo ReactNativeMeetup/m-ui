@@ -1,13 +1,12 @@
 import { StyleSheet, View, Text } from 'react-native';
 import { padding } from '../utils/styles/styles'
 
-export const HeaderText = ({props})=>{
+export const HeaderText = ({text, first, second})=>{
     return (
             <View style={styles.headerTextContainer}>
-                <Text style={styles.headerText}>Welcome to</Text>
-                <Text style={styles.headerText}>Meetup</Text>
-                <Text style={styles.subHeaderText}>Discover your niche and develop</Text>
-                <Text style={styles.subHeaderText}>unforgettable relationships.</Text>
+                <Text style={styles.headerText}>{text}</Text>
+                <Text style={styles.subHeaderText}>{first}</Text>
+                <Text style={styles.subHeaderText}>{second}</Text>
             </View>
     )
 }

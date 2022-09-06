@@ -1,6 +1,8 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import { useState } from 'react';
-import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
+import { padding } from '../utils/styles/styles'
+import HeaderText from './HeaderText';
+import { Image, StyleSheet, Text, TextInput, SafeAreaView, TouchableOpacity, View} from 'react-native';
 const Login = () => {
     const[state, setState] = useState({
       email:'',
@@ -14,10 +16,10 @@ const Login = () => {
   
   
     return (
-      <LinearGradient colors = {['#ADF5E7','#D4F6EF', '#f5f5dc']} style = {styles.container}>
+      <SafeAreaView style={styles.container}>
         <View style = {{alignItems: 'center',
       justifyContent: 'center',}}>
-        <Image source={{ uri: "https://upload.wikimedia.org/wikipedia/en/7/7d/Minions_characters.png" }} style={styles.logo} />
+          <HeaderText />
         </View>
         <View style = {styles.main}>
           <TextInput style = {styles.text}
@@ -30,7 +32,7 @@ const Login = () => {
           />
           <TouchableOpacity
           style = {styles.button}
-          onPress={() => navigation.navigate('Forgot')}>
+          onPress = {() => navigation.navigate("Login")}>
             <Text>
             Forgot Password
             </Text>
@@ -41,17 +43,17 @@ const Login = () => {
               Login
             </Text>
           </TouchableOpacity>
-      </LinearGradient>
+      </SafeAreaView>
     )
   }
   
   const styles = StyleSheet.create({
-    container:{
-      flex:1,
-      paddingTop: 50,
-      backgroundColor: '#AFE4FF',
-      
-    },
+    container: {
+      height: "100%",
+      display: "flex",
+      ...padding(0, 15, 0, 15),
+      backgroundColor: 'rgba(255, 255, 255, 1)',
+  },
     main:{
       flex:1,
       paddingTop: 50,
@@ -76,7 +78,7 @@ const Login = () => {
     }, 
     text:{
       padding: 10,
-      backgroundColor:"#C4C4C4",
+      backgroundColor:"transparent",
       textAlign: 'center',
       overflow: 'hidden',
       borderColor: '#0F5478',
