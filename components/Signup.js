@@ -5,6 +5,10 @@ import DropDownPicker from 'react-native-dropdown-picker';
 import { MaterialIcons } from '@expo/vector-icons'; 
 import { FontAwesome5 } from '@expo/vector-icons'; 
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { padding } from '../utils/styles/styles'
+import HeaderText from './HeaderText';
+import Input from './Inputs';
 const Signup = () => {
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState([]);
@@ -28,37 +32,45 @@ const Signup = () => {
     // }
   
     return (
-      <LinearGradient colors = {['#ADF5E7','#D4F6EF', '#f5f5dc']} style = {styles.container}>
-        <View style = {{alignItems: 'center',
-        justifyContent: 'center',}}>
-        <Image source={{ uri: "https://upload.wikimedia.org/wikipedia/en/7/7d/Minions_characters.png" }} style={styles.logo} />
+      <SafeAreaView style = {styles.container}>
+        <View style = {{alignItems: 'center'}}>
+          <HeaderText text = "Signup" first="Please complete the form" second = "listed below" />
         </View>
         <View style = {styles.main}>
-            <TextInput style = {styles.text}
-            placeholder = "First Name"
-            onChangeText={(text) => setState({...state, firstName:text})}/>
-            <TextInput style = {styles.text}
-            placeholder = "Last Name"
-            onChangeText={(text) => setState({...state, lastName:text})}/>
-            <TextInput style = {styles.text}
-            placeholder = "Phone Number"
-            onChangeText={(text) => setState({...state, phoneNumber:text})}/>
-            <TextInput style = {styles.text}
-            placeholder = "Email"
-            onChangeText={(text) => setState({...state, email:text})}/>
-            <TextInput style = {styles.text}
-            placeholder = "Address"
-            onChangeText={(text) => setState({...state, address:text})}/>
-          <TextInput style = {styles.text}
-            placeholder = "Zip Code"
-            onChangeText={(text) => setState({...state, zipCode:text})}/>
+            <Input text = "First Name"
+            onChangeText={(text) => setState({...state, firstName:text})}
+            main = {styles.text}
+            />
+            <Input text = "Last Name"
+            onChangeText={(text) => setState({...state, lastName:text})}
+            main = {styles.text}
+            />
+            <Input text = "Phone Number"
+            onChangeText={(text) => setState({...state, phoneNumber:text})}
+            main = {styles.text}
+            />
+            <Input text = "Email"
+            onChangeText={(text) => setState({...state, email:text})}
+            main = {styles.text}
+            />
+            <Input text = "Address"
+            onChangeText={(text) => setState({...state, address:text})}
+            main = {styles.text}
+            />
+            <Input text = "Zip Code"
+            onChangeText={(text) => setState({...state, zipCode:text})}
+            main = {styles.text}
+            />
           <DropDownPicker
-          defaultIndex={0}
-          containerStyle={{height: 40}}
+            color='transparent'
+            containerStyle={{width: 400}}
+            loading = {open}
+            defaultIndex={0}
             hideSelectedItemIcon={true}
             searchable={true}
             multiple = {true}
             min={0}
+            searchPlaceholder="Search"
             max={4}
             open={open}
             value={value}
@@ -68,54 +80,45 @@ const Signup = () => {
             setItems={setItems}
           />
         </View>
+        <View>
+        </View>
           <TouchableOpacity style = {styles.button}
           onPress = {() => alert(state.firstName+ ' ' + state.lastName+ ' ' + state.phoneNumber+ ' ' + state.email+ ' ' + state.address+ ' ' + state.zipCode)}>
-            <Text>
+            <Text style = {styles.text}>
               Signup
             </Text>
           </TouchableOpacity>
-      </LinearGradient>
+      </SafeAreaView>
     )
   }
   
   const styles = StyleSheet.create({
     container:{
-      flex:1,
-      paddingTop: 50,
-      backgroundColor: '#AFE4FF',
-      
+      height: "100%",
+      display: "flex",
+      ...padding(0, 15, 0, 15),
+      backgroundColor: 'beige',  
     },
     main:{
       flex:1,
       paddingTop: 50,
       alignItems: 'center',
-      justifyContent: 'center',
-    },
-    logo: {
-      alignItems: 'center',
-      justifyContent: 'center',
-      textAlign: 'center',
-      width: 305,
-      height: 159,
-      marginBottom: 10,
     },
     button:{
-      alignItems: 'center',
-      backgroundColor: '#C4C4C4',
-      padding:10,
-      borderWidth: 1, 
-      borderRadius: 10,
-    }, 
+      backgroundColor: "rgba(0, 0, 0, 1)",
+      borderRadius: "20px",
+      justifyContent: "center",
+      alignItems: "center",
+      height: 40,
+      marginTop: -100
+    },
     text:{
-      padding: 10,
-      backgroundColor:"#C4C4C4",
+      padding: 15,
       textAlign: 'center',
       overflow: 'hidden',
-      borderColor: '#0F5478',
-      borderWidth: 1, 
-      borderRadius: 10,
+      color:'white',
+      justifyContent:'space-between',
       width: "20%",
-      color: '#0F5478'
     },
     dropdown: {
       justifyContent:'flex-end'

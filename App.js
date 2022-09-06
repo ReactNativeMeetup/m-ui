@@ -7,9 +7,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Signup from './components/Signup';
 import Forgot from './components/Forgot';
 import { GettingStarted } from './pages';
-
+import Inputs from './components/Inputs';
 const Stack = createNativeStackNavigator()
-
+import Tester from './components/Tester';
 const App = () => {
   return (
     <NavigationContainer>
@@ -40,7 +40,7 @@ const App = () => {
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
-
+    // <Tester/>
   )
 }
 export default App
